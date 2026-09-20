@@ -13,6 +13,14 @@
 .quest-field #quest-raccoon{transition:left 0.6s ease,bottom 0.6s ease;}
 .quest-flower{position:absolute;width:28px;height:28px;object-fit:contain;image-rendering:pixelated;cursor:pointer;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.25));animation:sprout 0.4s ease;}
 .quest-flower.collected{animation:flower-pop 0.4s ease forwards;pointer-events:none;}
+.quest-weed{position:absolute;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.25));animation:sprout 0.4s ease;user-select:none;}
+.quest-weed.cleared{animation:flower-pop 0.3s ease forwards;pointer-events:none;}
+.quest-weed.shake{animation:weed-shake 0.25s ease;}
+@keyframes weed-shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-3px);}75%{transform:translateX(3px);}}
+.quest-decoy{position:absolute;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.25));animation:sprout 0.4s ease;user-select:none;}
+.quest-decoy.tapped{animation:flower-pop 0.3s ease forwards;pointer-events:none;}
+.quest-field.shake-field{animation:field-shake 0.4s ease;}
+@keyframes field-shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
 @keyframes flower-pop{to{transform:scale(0) translateY(-14px);opacity:0;}}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#0f2000","on-surface-variant":"#534434","surface-container":"#f5ecea","secondary-container":"#aef35e","on-tertiary-container":"#48423e","inverse-primary":"#ffb95f","secondary-fixed-dim":"#96d947","error":"#ba1a1a","tertiary-fixed":"#eae1da","background":"#fff8f6","on-secondary-fixed-variant":"#2e4f00","primary-container":"#f59e0b","surface":"#fff8f6","outline":"#867461","inverse-on-surface":"#f8efed","primary":"#855300","on-primary":"#ffffff","surface-container-highest":"#e9e1df","primary-fixed":"#ffddb8","surface-container-low":"#fbf2f0","surface-tint":"#855300","surface-variant":"#e9e1df","tertiary-fixed-dim":"#cec5bf","on-secondary":"#ffffff","tertiary-container":"#b8afa9","on-tertiary-fixed-variant":"#4b4641","secondary-fixed":"#b1f661","inverse-surface":"#342f2e","on-error":"#ffffff","on-primary-fixed-variant":"#653e00","surface-container-lowest":"#ffffff","on-primary-container":"#613b00","surface-container-high":"#efe6e4","on-primary-fixed":"#2a1700","error-container":"#ffdad6","on-tertiary":"#ffffff","on-surface":"#1e1b1a","on-error-container":"#93000a","on-secondary-container":"#426e00","outline-variant":"#d8c3ad","tertiary":"#645d58","on-background":"#1e1b1a","secondary":"#3f6a00","primary-fixed-dim":"#ffb95f","on-tertiary-fixed":"#1f1b17","surface-bright":"#fff8f6","surface-dim":"#e1d8d6"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"2rem","space-md":"1rem","space-xs":"0.25rem","space-lg":"1.75rem","gutter":"1.5rem","space-xl":"3rem","space-sm":"0.5rem"},"fontFamily":{"body-sm":["Manrope"],"headline-md":["Playfair Display"],"headline-lg":["Playfair Display"],"label-code-sm":["JetBrains Mono"],"display-md-mobile":["Playfair Display"],"display-md":["Playfair Display"],"display-lg-mobile":["Playfair Display"],"body-lg":["Manrope"],"body-md":["Manrope"],"headline-sm":["Playfair Display"],"display-lg":["Playfair Display"],"label-code-lg":["JetBrains Mono"]},"fontSize":{"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"500"}],"label-code-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"400"}],"display-md-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"400"}],"display-md":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"30px","letterSpacing":"0.01em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-code-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.04em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-4 flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Mapachita" class="w-8 h-8 rounded-full object-cover" src="assets/portrait/blink-1-open.jpg"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Para mi Mapachita</span><span class="font-label-code-sm text-label-code-sm text-on-surface-variant uppercase tracking-wider">Jardín De Flores</span></div></div><div class="flex items-center gap-space-xs"><div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-full text-on-surface-variant font-label-code-sm text-label-code-sm"><span class="text-primary-container">🌼</span><span class="font-medium text-primary">0/6</span></div><button aria-label="Música de fondo" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low text-primary hover:bg-primary-fixed transition-colors"><span class="material-symbols-outlined text-[20px]">music_note</span></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-6 bg-surface"><div class="flex flex-col w-full relative">
 <!-- PÉTALOS FLOTANTES DE FONDO -->
 <div aria-hidden="true" class="fixed inset-0 pointer-events-none z-30 overflow-hidden" id="petal-container"></div>
@@ -370,13 +378,22 @@
 <div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
 <div class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></div>
 </div>
-<p class="font-label-code-sm text-label-code-sm text-tertiary-fixed-dim mb-2">Tocá una flor para que el mapache vaya a buscarla.</p>
+<p class="font-label-code-sm text-label-code-sm text-tertiary-fixed-dim mb-2">Tocá una flor para que el mapache vaya a buscarla. Ojo con la maleza y las hojas secas.</p>
+<div class="flex items-center justify-between mb-2 font-label-code-sm text-label-code-sm text-tertiary-fixed-dim">
+<span>Nivel <strong id="quest-level" class="text-surface-bright">1</strong>/3</span>
+<span id="quest-lives">❤️❤️❤️</span>
+<span>⏱ <strong id="quest-timer" class="text-surface-bright">40</strong>s</span>
+</div>
 <div class="quest-field relative rounded-lg overflow-hidden" id="quest-field">
 <div class="raccoon-sprite" id="quest-raccoon" style="position:absolute; left:8px; bottom:8px;"></div>
 </div>
 <div class="mt-3 flex items-center justify-between font-label-code-sm text-label-code-sm text-tertiary-fixed-dim">
 <span id="quest-status">Flores en el jardín imaginario.</span>
-<span class="text-primary-fixed">🌼 <strong id="quest-counter" class="text-surface-bright">0</strong>/8</span>
+<span class="text-primary-fixed">🌼 <strong id="quest-counter" class="text-surface-bright">0</strong>/<span id="quest-total">8</span></span>
+</div>
+<div class="hidden mt-4 pt-4 border-t border-surface-container-highest/10 text-center space-y-3" id="quest-gameover">
+<p class="font-headline-sm text-headline-sm text-primary-fixed italic">Se acabaron los intentos... ¿lo intentamos de nuevo?</p>
+<button class="px-4 py-2 rounded-full bg-surface-container-highest/20 text-surface-bright font-body-sm text-body-sm font-medium hover:bg-surface-container-highest/30 transition-all" id="quest-retry">Reintentar 🔁</button>
 </div>
 <div class="hidden mt-4 pt-4 border-t border-surface-container-highest/10 text-center space-y-3" id="quest-victory">
 <p class="font-headline-sm text-headline-sm text-primary-fixed italic">"Ya sé que era un jardín imaginario, pero igual las juntaste todas por mí."</p>
@@ -811,37 +828,104 @@
       }
     }
 
-    // 9. Minijuego: el mapache junta las flores
+    // 9. Minijuego: el mapache junta las flores (con niveles de dificultad)
     const questField = document.getElementById('quest-field');
     const questRaccoon = document.getElementById('quest-raccoon');
     const questCounterEl = document.getElementById('quest-counter');
+    const questTotalEl = document.getElementById('quest-total');
     const questStatusEl = document.getElementById('quest-status');
     const questVictory = document.getElementById('quest-victory');
     const questReplay = document.getElementById('quest-replay');
+    const questGameover = document.getElementById('quest-gameover');
+    const questRetry = document.getElementById('quest-retry');
     const questTerminalStatus = document.getElementById('quest-terminal-status');
+    const questLevelEl = document.getElementById('quest-level');
+    const questLivesEl = document.getElementById('quest-lives');
+    const questTimerEl = document.getElementById('quest-timer');
     const questFlowerPool = Object.values(flowerIcons);
-    const QUEST_TOTAL = 8;
-    const QUEST_COLS = 4;
-    const QUEST_ROWS = 2;
     const QUEST_FIELD_HEIGHT = 224;
-    let questCollected = 0;
-    let questBusy = false;
+    const QUEST_MAX_LEVEL = 3;
+    const QUEST_LEVELS = [
+      { flowers: 8, weedCount: 0, weedHits: 0, decoyCount: 0, timeLimit: 40 },
+      { flowers: 9, weedCount: 2, weedHits: 2, decoyCount: 1, timeLimit: 30 },
+      { flowers: 10, weedCount: 3, weedHits: 3, decoyCount: 2, timeLimit: 22 },
+    ];
+    const DECOY_EMOJI = '🍂';
 
-    function questLayoutFlowers() {
+    let questLevel = 1;
+    let questLives = 3;
+    let questCollected = 0;
+    let questLevelTotal = 8;
+    let questBusy = false;
+    let questTimeLeft = 40;
+    let questTimerInterval = null;
+
+    function questRenderLives() {
+      questLivesEl.textContent = '❤️'.repeat(Math.max(0, questLives)) + '🖤'.repeat(3 - Math.max(0, questLives));
+    }
+
+    function questStopTimer() {
+      if (questTimerInterval) {
+        clearInterval(questTimerInterval);
+        questTimerInterval = null;
+      }
+    }
+
+    function questStartTimer() {
+      questStopTimer();
+      questTimerEl.textContent = questTimeLeft;
+      questTimerInterval = setInterval(() => {
+        questTimeLeft--;
+        questTimerEl.textContent = Math.max(0, questTimeLeft);
+        if (questTimeLeft <= 0) {
+          questStopTimer();
+          questStatusEl.textContent = 'Se marchitaron... ¡de nuevo!';
+          setTimeout(() => questStartLevel(questLevel), 900);
+        }
+      }, 1000);
+    }
+
+    function questLayoutSlots(config) {
+      const totalSlots = config.flowers + config.decoyCount;
+      const cols = Math.ceil(totalSlots / 2);
+      const rows = 2;
       const fieldWidth = questField.clientWidth;
-      const flowerSize = 28;
+      const slotSize = 30;
       const marginX = 10;
       const topBand = 100;
       const bottomMargin = 12;
-      const usableWidth = fieldWidth - marginX * 2 - flowerSize;
-      const usableHeight = QUEST_FIELD_HEIGHT - topBand - bottomMargin - flowerSize;
-      const cellW = usableWidth / QUEST_COLS;
-      const cellH = usableHeight / QUEST_ROWS;
+      const usableWidth = fieldWidth - marginX * 2 - slotSize;
+      const usableHeight = QUEST_FIELD_HEIGHT - topBand - bottomMargin - slotSize;
+      const cellW = usableWidth / cols;
+      const cellH = usableHeight / rows;
 
-      for (let r = 0; r < QUEST_ROWS; r++) {
-        for (let c = 0; c < QUEST_COLS; c++) {
+      // Arma la lista de tipos de casilla y la mezcla
+      const slotTypes = [];
+      for (let i = 0; i < config.weedCount; i++) slotTypes.push('weed');
+      for (let i = 0; i < config.flowers - config.weedCount; i++) slotTypes.push('plain');
+      for (let i = 0; i < config.decoyCount; i++) slotTypes.push('decoy');
+      for (let i = slotTypes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [slotTypes[i], slotTypes[j]] = [slotTypes[j], slotTypes[i]];
+      }
+
+      let index = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (index >= slotTypes.length) continue;
+          const type = slotTypes[index++];
           const left = marginX + c * cellW + Math.random() * cellW;
           const top = topBand + r * cellH + Math.random() * cellH;
+
+          if (type === 'decoy') {
+            const decoy = document.createElement('div');
+            decoy.className = 'quest-decoy';
+            decoy.textContent = DECOY_EMOJI;
+            decoy.style.left = left + 'px';
+            decoy.style.top = top + 'px';
+            questField.appendChild(decoy);
+            continue;
+          }
 
           const flower = document.createElement('img');
           flower.src = questFlowerPool[Math.floor(Math.random() * questFlowerPool.length)];
@@ -849,63 +933,144 @@
           flower.className = 'quest-flower';
           flower.style.left = left + 'px';
           flower.style.top = top + 'px';
-          questField.appendChild(flower);
+
+          if (type === 'weed') {
+            flower.classList.add('hidden');
+            const weed = document.createElement('div');
+            weed.className = 'quest-weed';
+            weed.textContent = '🌿';
+            weed.dataset.hits = String(config.weedHits);
+            weed.style.left = left + 'px';
+            weed.style.top = top + 'px';
+            questField.appendChild(flower);
+            questField.appendChild(weed);
+          } else {
+            questField.appendChild(flower);
+          }
         }
       }
     }
 
-    function questReset() {
-      questField.querySelectorAll('.quest-flower').forEach(f => f.remove());
-      questCollected = 0;
+    function questSendRaccoonTo(targetLeft, targetTop) {
+      const raccoonLeft = parseFloat(questRaccoon.style.left) || 0;
+      const goingLeft = targetLeft < raccoonLeft;
+      questRaccoon.classList.toggle('face-left', goingLeft);
+      questRaccoon.classList.add('is-running');
+      questRaccoon.style.left = Math.max(0, targetLeft - 10) + 'px';
+      questRaccoon.style.bottom = Math.max(4, QUEST_FIELD_HEIGHT - targetTop - 26) + 'px';
+      setTimeout(() => questRaccoon.classList.remove('is-running'), 600);
+    }
+
+    function questCollectFlower(flower) {
+      flower.classList.add('collected');
+      triggerPetalShower(3);
+      setTimeout(() => flower.remove(), 400);
+
+      questCollected++;
+      questCounterEl.textContent = questCollected;
       questBusy = false;
+
+      if (questCollected === questLevelTotal) {
+        questStopTimer();
+        if (questLevel < QUEST_MAX_LEVEL) {
+          questStatusEl.textContent = `¡Nivel ${questLevel} superado!`;
+          setTimeout(() => questStartLevel(questLevel + 1), 1200);
+        } else {
+          questStatusEl.textContent = '¡Las juntaste todas!';
+          questTerminalStatus.textContent = 'misión cumplida 💛';
+          questVictory.classList.remove('hidden');
+          triggerPetalShower(20);
+        }
+      }
+    }
+
+    function questLoseLife() {
+      questLives--;
+      questRenderLives();
+      questField.classList.add('shake-field');
+      setTimeout(() => questField.classList.remove('shake-field'), 400);
+
+      if (questLives <= 0) {
+        questStopTimer();
+        questStatusEl.textContent = 'Sin intentos...';
+        questGameover.classList.remove('hidden');
+      }
+    }
+
+    function questStartLevel(level) {
+      questField.querySelectorAll('.quest-flower, .quest-weed, .quest-decoy').forEach(el => el.remove());
+      const config = QUEST_LEVELS[level - 1];
+      questLevel = level;
+      questCollected = 0;
+      questLevelTotal = config.flowers;
+      questBusy = false;
+      questTimeLeft = config.timeLimit;
+
+      questLevelEl.textContent = questLevel;
       questCounterEl.textContent = '0';
+      questTotalEl.textContent = questLevelTotal;
       questStatusEl.textContent = 'Flores en el jardín imaginario.';
       questTerminalStatus.textContent = 'jugando...';
       questVictory.classList.add('hidden');
+      questGameover.classList.add('hidden');
       questRaccoon.style.left = '8px';
       questRaccoon.style.bottom = '8px';
       questRaccoon.classList.remove('is-running', 'face-left');
-      questLayoutFlowers();
+
+      questLayoutSlots(config);
+      questStartTimer();
+    }
+
+    function questFullReset() {
+      questLives = 3;
+      questRenderLives();
+      questStartLevel(1);
     }
 
     if (questField) {
       questField.addEventListener('click', (e) => {
+        if (questBusy) return;
+
+        const decoy = e.target.closest('.quest-decoy');
+        if (decoy && !decoy.classList.contains('tapped')) {
+          decoy.classList.add('tapped');
+          setTimeout(() => decoy.remove(), 350);
+          questLoseLife();
+          return;
+        }
+
+        const weed = e.target.closest('.quest-weed');
+        if (weed && !weed.classList.contains('cleared')) {
+          const hitsLeft = parseInt(weed.dataset.hits, 10) - 1;
+          weed.dataset.hits = String(hitsLeft);
+          if (hitsLeft <= 0) {
+            weed.classList.add('cleared');
+            setTimeout(() => weed.remove(), 300);
+            const wLeft = weed.style.left, wTop = weed.style.top;
+            const hiddenFlower = Array.from(questField.querySelectorAll('.quest-flower.hidden'))
+              .find(f => f.style.left === wLeft && f.style.top === wTop);
+            if (hiddenFlower) hiddenFlower.classList.remove('hidden');
+          } else {
+            weed.classList.add('shake');
+            setTimeout(() => weed.classList.remove('shake'), 250);
+          }
+          return;
+        }
+
         const flower = e.target.closest('.quest-flower');
-        if (!flower || flower.classList.contains('collected') || questBusy) return;
+        if (!flower || flower.classList.contains('collected') || flower.classList.contains('hidden')) return;
 
         questBusy = true;
         const flowerLeft = parseFloat(flower.style.left);
         const flowerTop = parseFloat(flower.style.top);
-        const raccoonLeft = parseFloat(questRaccoon.style.left) || 0;
-        const goingLeft = flowerLeft < raccoonLeft;
-
-        questRaccoon.classList.toggle('face-left', goingLeft);
-        questRaccoon.classList.add('is-running');
-        questRaccoon.style.left = Math.max(0, flowerLeft - 10) + 'px';
-        questRaccoon.style.bottom = Math.max(4, QUEST_FIELD_HEIGHT - flowerTop - 26) + 'px';
-
-        setTimeout(() => {
-          questRaccoon.classList.remove('is-running');
-          flower.classList.add('collected');
-          triggerPetalShower(3);
-          setTimeout(() => flower.remove(), 400);
-
-          questCollected++;
-          questCounterEl.textContent = questCollected;
-          questBusy = false;
-
-          if (questCollected === QUEST_TOTAL) {
-            questStatusEl.textContent = '¡Las juntaste todas!';
-            questTerminalStatus.textContent = 'misión cumplida 💛';
-            questVictory.classList.remove('hidden');
-            triggerPetalShower(20);
-          }
-        }, 620);
+        questSendRaccoonTo(flowerLeft, flowerTop);
+        setTimeout(() => questCollectFlower(flower), 620);
       });
 
-      if (questReplay) questReplay.addEventListener('click', questReset);
+      if (questReplay) questReplay.addEventListener('click', questFullReset);
+      if (questRetry) questRetry.addEventListener('click', questFullReset);
 
-      questReset();
+      questFullReset();
     }
   })();
 </script></main></body></html>
